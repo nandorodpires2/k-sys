@@ -25,6 +25,7 @@
                             <th>Host</th>
                             <th>Usuário</th>
                             <th>Senha</th>
+                            <th class="col-md-1">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,6 +36,11 @@
                             <td><?php echo $senha->senha_host; ?></td>
                             <td><?php echo $senha->senha_usuario; ?></td>
                             <td><?php echo $senha->senha_senha; ?></td>
+                            <td>
+                                <a href="" class="text-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                                <a href="" class="text-danger"><i class="glyphicon glyphicon-trash"></i></a>
+                                <a href="" class="text-info"><i class="glyphicon glyphicon-search"></i></a>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>

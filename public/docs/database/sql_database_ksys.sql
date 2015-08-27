@@ -10,12 +10,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Copiando estrutura do banco de dados para ksys
-DROP DATABASE IF EXISTS `ksys`;
-CREATE DATABASE IF NOT EXISTS `ksys` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `ksys`;
-
-
 -- Copiando estrutura para tabela ksys.cliente
 DROP TABLE IF EXISTS `cliente`;
 CREATE TABLE IF NOT EXISTS `cliente` (
@@ -51,13 +45,15 @@ CREATE TABLE IF NOT EXISTS `senha` (
   KEY `fk_senha_cliente1_idx` (`cliente_id`),
   CONSTRAINT `fk_senha_senha_tipo` FOREIGN KEY (`senha_tipo_id`) REFERENCES `senha_tipo` (`senha_tipo_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_senha_cliente1` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`cliente_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela ksys.senha: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela ksys.senha: ~2 rows (aproximadamente)
 DELETE FROM `senha`;
 /*!40000 ALTER TABLE `senha` DISABLE KEYS */;
 INSERT INTO `senha` (`senha_id`, `senha_tipo_id`, `senha_host`, `senha_usuario`, `senha_senha`, `senha_observacao`, `senha_ativo`, `cliente_id`) VALUES
-	(1, 1, 'http://webmail.stylesheets.com.br/roundcube/index.php?_user=orcamento@stylesheets.com.br', 'orcamento@stylesheets.com.br', 'nando@_310508', NULL, 1, 1);
+	(1, 1, 'webmail.stylesheets.com.br/roundcube', 'orcamento@stylesheets.com.br', 'nando@_310508', NULL, 1, 1),
+	(2, 2, 'stylesheets.com.br/wp-admin', 'admin', 'nando310508', 'Senha do administrador do wordpress', 1, 1),
+	(3, 3, '186.202.161.48', 'administrador', 'nando@_310508', 'Senha do FTP', 1, 1);
 /*!40000 ALTER TABLE `senha` ENABLE KEYS */;
 
 

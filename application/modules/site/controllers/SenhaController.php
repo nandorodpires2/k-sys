@@ -27,6 +27,20 @@ class Site_SenhaController extends Zend_Controller_Action {
                 
                 $data = $formSenhaAdd->getValues();
                 
+                $modelSenha = new Model_Senha();
+                
+                try {
+                    $modelSenha->insert($data);
+                } catch (Exception $ex) {
+                    
+                }
+                
+                /**
+                 * @todo Criar mensagens de sucesso e erro
+                 */
+                
+                $this->_redirect('/index');
+                
             }
         }
         
