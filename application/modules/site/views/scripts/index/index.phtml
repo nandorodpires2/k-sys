@@ -1,7 +1,46 @@
 <section>
     <div class="row">
         <div class="col-md-12">
-            <h3><?php echo $this->translate("Page Index"); ?></h3>
+            <h3>SENHAS</h3>
         </div>
     </div>    
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <a href="<?php echo $this->url(array(
+                'controller' => 'senha',
+                'action' => 'add'
+            ), null, true); ?>" class="btn btn-success">Nova Senha</a>
+            <hr />
+        </div>
+    </div>
+    <?php if ($this->senhas->count() > 0) : ?>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped table-responsive">
+                    <thead>
+                        <tr>
+                            <th class="col-md-3">Cliente</th>
+                            <th class="col-md-2">Tipo</th>
+                            <th>Host</th>
+                            <th>Usuário</th>
+                            <th>Senha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($this->senhas as $senha) : ?>
+                        <tr>
+                            <td><?php echo $senha->cliente_nome; ?></td>
+                            <td><?php echo $senha->senha_tipo_nome; ?></td>
+                            <td><?php echo $senha->senha_host; ?></td>
+                            <td><?php echo $senha->senha_usuario; ?></td>
+                            <td><?php echo $senha->senha_senha; ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
 </section>
