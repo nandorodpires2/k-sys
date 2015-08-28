@@ -19,6 +19,7 @@ class Form_Senha_Add extends Zend_Form {
         $cliente_id = new Zend_Form_Element_Select('cliente_id');
         $cliente_id->setLabel('Cliente: ');
         $cliente_id->setMultiOptions($this->getClientes());
+        $cliente_id->addDecorators(Form_Decorators::$simpleElementDecorators);
         $cliente_id->setRequired();
         
         // senha_tipo_id
@@ -26,21 +27,25 @@ class Form_Senha_Add extends Zend_Form {
         $senha_tipo_id->setLabel('Tipo Senha: ');
         $senha_tipo_id->setMultiOptions($this->getSenhasTipo());
         $senha_tipo_id->setRequired();
+        $senha_tipo_id->addDecorators(Form_Decorators::$simpleElementDecorators);
         
         // senha_host
         $senha_host = new Zend_Form_Element_Text('senha_host');
         $senha_host->setLabel('Host: ');
         $senha_host->setRequired();
+        $senha_host->addDecorators(Form_Decorators::$simpleElementDecorators);
         
         // senha_usuario
         $senha_usuario = new Zend_Form_Element_Text('senha_usuario');
         $senha_usuario->setLabel('Usuário: ');
         $senha_usuario->setRequired();
+        $senha_usuario->addDecorators(Form_Decorators::$simpleElementDecorators);
         
         // senha_senha
         $senha_senha = new Zend_Form_Element_Text('senha_senha');
         $senha_senha->setLabel('Senha: ');
         $senha_senha->setRequired();
+        $senha_senha->addDecorators(Form_Decorators::$simpleElementDecorators);
         
         // senha_observacao
         $senha_observacao = new Zend_Form_Element_Textarea('senha_observacao');
