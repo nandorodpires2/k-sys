@@ -37,4 +37,15 @@ class Model_Senha extends Zend_Db_Table_Abstract {
         return parent::fetchAll($select);
     }
     
+    public function update(array $data, $senha_id) {
+        $where = $this->getAdapter()->quoteInto('senha_id = ?', $senha_id);
+        return parent::update($data, $where);
+    }
+
+    public function setDisable($senha_id) {
+        $data = array('senha_ativo' => 0);
+        $where = $this->getAdapter()->quoteInto("senha_id = ?", $senha_id);        
+        return parent::update($data, $where);
+    }
+    
 }

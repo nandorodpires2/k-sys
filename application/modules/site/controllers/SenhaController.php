@@ -46,4 +46,51 @@ class Site_SenhaController extends Zend_Controller_Action {
         
     }
     
+    public function editAction() {
+        
+        $senha_id = $this->getRequest()->getParam('senha_id');
+        
+        $modelSenha = new Model_Senha();
+        $senha = $modelSenha->fetchRow("senha_id = {$senha_id}");
+        
+        $formSenha = new Form_Senha_Add();
+        $formSenha->submit->setLabel("Editar");
+        $formSenha->populate($senha->toArray());
+        
+        $this->view->form = $formSenha;
+        
+        if ($this->getRequest()->isPost()) {
+            if ($formSenha->isValid($this->getRequest()->getPost())) {
+                $data = $formSenha->getValues();
+                
+                try {
+                    $modelSenha = new Model_Senha();
+                    $modelSenha->update($data, $senha_id);
+                } catch (Exception $ex) {
+
+                }
+                
+                $this->_redirect('index/');
+                
+            }
+        }
+        
+    }
+    
+    public function deleteAction() {
+        
+        $this->_helper->viewRenderer->setNoRender();
+        $senha_id = $this->getRequest()->getParam('senha_id');
+        
+        try {
+            $modelSenha = new Model_Senha();
+            $modelSenha->setDisable($senha_id);            
+        } catch (Exception $ex) {
+
+        }
+        
+        $this->_redirect("index/");
+        
+    }
+    
 }

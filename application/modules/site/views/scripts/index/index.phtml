@@ -36,10 +36,18 @@
                             <td><?php echo $senha->senha_host; ?></td>
                             <td><?php echo $senha->senha_usuario; ?></td>
                             <td><?php echo $senha->senha_senha; ?></td>
-                            <td>
-                                <a href="" class="text-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                                <a href="" class="text-danger"><i class="glyphicon glyphicon-trash"></i></a>
-                                <a href="" class="text-info"><i class="glyphicon glyphicon-search"></i></a>
+                            <td class="text-center">
+                                <a href="<?php echo $this->url(array(
+                                    'controller' => 'senha',
+                                    'action' => 'edit',
+                                    'senha_id' => $senha->senha_id
+                                ), null, true); ?>" class="text-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                                <a href="<?php echo $this->url(array(
+                                    'controller' => 'senha',
+                                    'action' => 'delete',
+                                    'senha_id' => $senha->senha_id
+                                ), null, true); ?>" class="text-danger"><i class="glyphicon glyphicon-trash"></i></a>
+                                <!--<a href="" class="text-info"><i class="glyphicon glyphicon-search"></i></a>-->
                             </td>
                         </tr>
                         <?php endforeach; ?>
