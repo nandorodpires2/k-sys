@@ -53,6 +53,7 @@ class Site_AuthController extends Zend_Controller_Action {
                             'class' => 'alert alert-danger',
                             'message' => 'Usuário e/ou senha inválidos!'
                         ));
+                        Zend_Debug::dump($result); die();
                         $this->_redirect("admin/autenticacao/login");
                     }
 
